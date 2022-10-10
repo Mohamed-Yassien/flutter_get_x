@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/controller/home_controller.dart';
+import 'package:get/get.dart';
 
 class ScreenTwo extends StatelessWidget {
   const ScreenTwo({Key? key}) : super(key: key);
@@ -10,41 +12,14 @@ class ScreenTwo extends StatelessWidget {
         title: const Text('Screen Two'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            MaterialButton(
-              color: Colors.deepOrange,
-              onPressed: () {},
-              child: const Text(
-                'Screen 1',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
+        child: GetBuilder<HomeController>(
+          init: HomeController(),
+          builder: (controller) => Text(
+            '${controller.counter}',
+            style: const TextStyle(
+              fontSize: 35,
             ),
-            MaterialButton(
-              color: Colors.deepOrange,
-              onPressed: () {},
-              child: const Text(
-                'Screen 3',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            MaterialButton(
-              color: Colors.deepOrange,
-              onPressed: () {},
-              child: const Text(
-                'back',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

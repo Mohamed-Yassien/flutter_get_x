@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/controller/home_controller.dart';
 import 'package:get/get.dart';
 
 class ScreenOne extends StatelessWidget {
-  const ScreenOne({Key? key}) : super(key: key);
+   ScreenOne({Key? key}) : super(key: key);
+
+  final HomeController controller = Get.find();
+
 
   @override
   Widget build(BuildContext context) {
@@ -10,43 +14,37 @@ class ScreenOne extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Screen One'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+      body:  Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            MaterialButton(
-              color: Colors.deepOrange,
-              onPressed: () {},
-              child: const Text(
-                'Screen 2',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            MaterialButton(
-              color: Colors.deepOrange,
-              onPressed: () {},
-              child: const Text(
-                'Screen 3',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            MaterialButton(
-              color: Colors.deepOrange,
+            IconButton(
               onPressed: () {
-                Get.back();
+                controller.increment();
               },
-              child: const Text(
-                'back',
-                style: TextStyle(
-                  color: Colors.white,
+              icon: const Icon(
+                Icons.add,
+                size: 35,
+              ),
+            ),
+            GetBuilder<HomeController>(
+              builder: (controller) => Text(
+                '${controller.counter}',
+                style: const TextStyle(
+                  fontSize: 30,
                 ),
               ),
             ),
+            IconButton(
+              onPressed: () {
+                controller.decrement();
+              },
+              icon: const Icon(
+                Icons.remove,
+                size: 35,
+              ),
+            ),
+
           ],
         ),
       ),

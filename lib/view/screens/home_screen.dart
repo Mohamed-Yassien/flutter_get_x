@@ -1,47 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/controller/home_controller.dart';
+import 'package:flutter_getx/view/screens/screen_one.dart';
+import 'package:flutter_getx/view/screens/screen_two.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
    HomeScreen({Key? key}) : super(key: key);
 
-  final HomeController controller = Get.put(HomeController());
+
+  final controller = Get.lazyPut(() => HomeController(),fenix: true);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Obx(
-          () => Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                onPressed: () {
-                  controller.increment();
-                },
-                icon: const Icon(
-                  Icons.add,
-                  size: 35,
-                ),
-              ),
-              Text(
-                '${controller.counter}',
-                style: const TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-              IconButton(
-                onPressed: () {
-                  controller.decrement();
-                },
-                icon: const Icon(
-                  Icons.remove,
-                  size: 35,
-                ),
-              ),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: () {
+                Get.to(() =>  ScreenOne());
+              },
+              child: const Text('Screen one'),
+            ),
+            TextButton(
+              onPressed: () {
+                Get.to(() =>  const ScreenTwo());
+              },
+              child: const Text('Screen two'),
+            ),
+          ],
         ),
       ),
     );

@@ -27,6 +27,7 @@ class ScreenOne extends GetView<SettingsServices> {
                 size: 35,
               ),
             ),
+
           ],
         ),
       ),

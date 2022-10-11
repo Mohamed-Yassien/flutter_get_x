@@ -4,7 +4,6 @@ import 'package:flutter_getx/view/screens/theme_screen.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 late SharedPreferences sharedPreferences;
 
 main() async {
@@ -22,6 +21,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: const ThemeScreen(),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: Get.isDarkMode ? ThemeMode.light : ThemeMode.dark,
     );
   }
 }

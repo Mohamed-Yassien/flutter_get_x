@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
             ),
             MaterialButton(
               onPressed: () {
-                sharedPreferences!.clear();
+                // sharedPreferences!.clear();
                 Get.offNamed('/');
               },
               color: Colors.red,

@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
       body: Center(
         child: MaterialButton(
           onPressed: () {
-            sharedPreferences!.setString('id', '1');
+            // sharedPreferences!.setString('id', '1');
             Get.offAllNamed('/home');
           },
           color: Colors.deepOrange,

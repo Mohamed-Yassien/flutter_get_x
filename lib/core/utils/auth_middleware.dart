@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 class AuthMiddleWare extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
-    if (sharedPreferences!.getString('id') != null) {
-      return const RouteSettings(name: '/home');
-    }
+    // if (sharedPreferences!.getString('id') != null) {
+    //   return const RouteSettings(name: '/home');
+    // }
     return null;
   }
 }

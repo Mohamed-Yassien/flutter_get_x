@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/core/utils/my_binding.dart';
 import 'package:get/get.dart';
 
 import 'view/screens/home_screen.dart';
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return   GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      initialBinding: MyBinding(),
       home: HomeScreen(),
     );
   }

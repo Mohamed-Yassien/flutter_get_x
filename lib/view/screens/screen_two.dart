@@ -13,7 +13,6 @@ class ScreenTwo extends StatelessWidget {
       ),
       body: Center(
         child: GetBuilder<HomeController>(
-          init: HomeController(),
           builder: (controller) => Text(
             '${controller.counter}',
             style: const TextStyle(
